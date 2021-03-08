@@ -9,8 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.Sales_Activity"
-            android:parentActivityName=".activities.MainActivity"></activity>
+        <activity android:name=".activities.ShowAllProducts_Activity"></activity>
+        <activity
+            android:name=".activities.Sales_Activity"
+            android:parentActivityName=".activities.MainActivity" />
         <activity
             android:name=".activities.Repostory_Activity"
             android:label="Add new Product"
@@ -24,7 +26,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.MainActivity"></activity>
+        <activity android:name=".activities.MainActivity" />
     </application>
 
 </manifest>
