@@ -9,9 +9,24 @@
     android:fitsSystemWindows="true"
     tools:context=".activities.Sales_Activity">
     <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/sales_show_items"
+            android:layout_margin="16dp"
+            android:layout_width="wrap_content"
+            android:focusableInTouchMode="true"
+            android:clickable="true"
+            app:srcCompat="@drawable/menu_icon"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom">
+        </com.google.android.material.floatingactionbutton.FloatingActionButton>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
         android:layout_width="match_parent"
         android:orientation="horizontal"
         android:layout_height="wrap_content">
@@ -29,17 +44,43 @@
 
         </SearchView>
     </LinearLayout>
+        <ListView
+            android:layout_width="fill_parent"
+            android:layout_height="300dp"
+           ></ListView>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_items"
+                android:background="@drawable/bg"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight = "1"
+                android:adjustViewBounds="true"
+                >
 
+            </androidx.recyclerview.widget.RecyclerView>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/sales_show_items"
-        android:layout_margin="16dp"
-        android:layout_width="wrap_content"
-        android:focusableInTouchMode="true"
-        android:clickable="true"
-        app:srcCompat="@drawable/menu_icon"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom">
-    </com.google.android.material.floatingactionbutton.FloatingActionButton>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                  android:gravity="center"
+                    android:text="Total :  " />
+                <TextView
+                    android:id="@+id/txt_total"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:textColor="#800"
+                    android:hint="0$"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
     </FrameLayout>
+
 </LinearLayout>

@@ -1,16 +1,28 @@
 package com.almutarreb.hamodpos.model;
 
 public class PRODUCT {
-    private int id;
-    private  String product_name;
-    private  int quantity;
-    private float price;
-    public PRODUCT(String product_name, int quantity, float price)
+   public int id;
+   public   String product_name;
+     public int quantity;
+      public  float price;
+      public  PRODUCT()
+      {
+
+      }
+    public PRODUCT(int id,String product_name, int quantity, float price)
     {
+        this.id=id;
         this.product_name=product_name;
         this.price=price;
         this.quantity=quantity;
     }
+
+    public PRODUCT(String product_name, Integer quantity, Float price) {
+        this.product_name=product_name;
+        this.price=price;
+        this.quantity=quantity;
+    }
+
     public float getPrice()
     {
         return price;

@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
-import com.almutarreb.hamodpos.MyCustumAdapter;
+import com.almutarreb.hamodpos.adapters.MyCustumAdapter;
 import com.almutarreb.hamodpos.R;
 
 public class MainActivity extends AppCompatActivity {

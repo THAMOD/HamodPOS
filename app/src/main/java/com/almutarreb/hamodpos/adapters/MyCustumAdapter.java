@@ -1,4 +1,4 @@
-package com.almutarreb.hamodpos;
+package com.almutarreb.hamodpos.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.almutarreb.hamodpos.R;
 
 public class MyCustumAdapter extends BaseAdapter {
     private Context context;

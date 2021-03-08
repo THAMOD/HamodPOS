@@ -2,6 +2,7 @@ package com.almutarreb.hamodpos.data;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
@@ -54,5 +55,23 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         }else {
             Toast.makeText(context, "Added Successfully!", Toast.LENGTH_SHORT).show();
         }
+    }
+    public Cursor readAllData(){
+        String query = "SELECT * FROM products " ;
+        Cursor cursor = null;
+        try
+        {
+            SQLiteDatabase db = this.getReadableDatabase();
+
+            if(db != null){
+                cursor = db.rawQuery(query, null,null);
+            }
+        }
+        catch (Exception ex)
+        {
+            Toast.makeText(context, ex.getMessage().toString(), Toast.LENGTH_SHORT).show();
+        }
+
+        return cursor;
     }
 }
