@@ -42,7 +42,6 @@ public class RecyclerView_Adapter extends RecyclerView.Adapter<RecyclerView_Adap
         View view = inflater.inflate(R.layout.recycler_row, parent, false);
         return new MyViewHolder(view);
     }
-
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
     PRODUCT product= (PRODUCT) products.get(position);
@@ -51,6 +50,13 @@ public class RecyclerView_Adapter extends RecyclerView.Adapter<RecyclerView_Adap
         holder.price.setText(String.valueOf(product.price));
 
     }
+PRODUCT getProduct(){
+
+        PRODUCT p =new PRODUCT();
+        return  p;
+}
+
+
 
     @Override
     public int getItemCount() {

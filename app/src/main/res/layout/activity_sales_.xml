@@ -48,14 +48,14 @@
             android:layout_width="fill_parent"
             android:layout_height="300dp"
            ></ListView>
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_items"
-                android:background="@drawable/bg"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight = "1"
+                android:layout_weight="1"
                 android:adjustViewBounds="true"
-                >
+                android:background="@android:color/darker_gray">
 
             </androidx.recyclerview.widget.RecyclerView>
 

@@ -9,14 +9,23 @@
     <RelativeLayout
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:background="@drawable/bg">
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+      >
 
-
+<androidx.cardview.widget.CardView
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:backgroundTint="#B1B0DA"
+    app:cardCornerRadius="12dp">
         <ImageView
-         android:layout_centerInParent="true"
+            android:layout_gravity="center"
             android:id="@+id/column_image"
             android:layout_width="150dp"
             android:layout_height="150dp"
+            android:layout_centerInParent="true"
             android:contentDescription="@string/todo"
             android:src="@drawable/store_icon"></ImageView>
 
@@ -26,9 +35,11 @@
             android:layout_height="30dp"
             android:layout_below="@+id/column_image"
             android:text="@string/sales"
+            android:layout_gravity="bottom|center"
             android:textAlignment="center"
-            android:textSize="20dp"
-            ></TextView>
+            android:textColor="@color/cardview_light_background"
+            android:textSize="20dp"></TextView>
+</androidx.cardview.widget.CardView>
 
     </RelativeLayout>
 
