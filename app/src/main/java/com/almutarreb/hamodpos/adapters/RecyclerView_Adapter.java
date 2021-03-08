@@ -22,12 +22,15 @@ import java.util.ArrayList;
 
 public class RecyclerView_Adapter extends RecyclerView.Adapter<RecyclerView_Adapter.MyViewHolder> {
     private Context context;
-    ArrayList<PRODUCT> product ;
+    ArrayList product_name,quantity,price;
+      ;
     private Activity activity;
-    public RecyclerView_Adapter(Activity activity, Context context, ArrayList<PRODUCT> products)
+    public RecyclerView_Adapter(Activity activity, Context context, ArrayList product_name,ArrayList quantity,ArrayList price)
     {
         this.context=context;
-        this.product=products;
+        this.product_name=product_name;
+        this.quantity=quantity;
+        this.price=price;
         this.activity=activity;
     }
 
@@ -43,16 +46,16 @@ public class RecyclerView_Adapter extends RecyclerView.Adapter<RecyclerView_Adap
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Toast.makeText(context, " set text on the items", Toast.LENGTH_SHORT).show();
-     PRODUCT p=product.get(position);
-       holder.product_name.setText(String.valueOf(p.product_name));
-       holder.quantity.setText(String.valueOf(p.quantity));
-       holder.price.setText(String.valueOf(p.price));
-      // holder.book_pages_txt.setText(String.valueOf(book_pages.get(position)))
+
+       holder.product_name.setText(String.valueOf(product_name.get(position)));
+        holder.quantity.setText(String.valueOf(quantity.get(position)));
+        holder.price.setText(String.valueOf(price.get(position)));
+
     }
 
     @Override
     public int getItemCount() {
-        return product.size();
+        return quantity.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
