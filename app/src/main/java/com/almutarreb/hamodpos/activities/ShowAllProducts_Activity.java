@@ -19,17 +19,16 @@ public class ShowAllProducts_Activity extends AppCompatActivity {
 RecyclerView recyclerView;
 RecyclerView_Adapter adapter;
 MyDataBaseHelper db;
-ArrayList<String> products_name,quantity,price;
+ArrayList products;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_all_products_);
         recyclerView=findViewById(R.id.all_item_recycler);
-        products_name= new ArrayList<String>();
-        quantity=new ArrayList<String>();
-        price= new ArrayList<String>();
+        products= new ArrayList<PRODUCT>();
+
         getdata();
-        adapter=new RecyclerView_Adapter(ShowAllProducts_Activity.this,getApplicationContext(),products_name,quantity,price);
+        adapter=new RecyclerView_Adapter(ShowAllProducts_Activity.this,getApplicationContext(),products);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(ShowAllProducts_Activity.this));
     }
@@ -42,10 +41,9 @@ ArrayList<String> products_name,quantity,price;
             if(cursor.getCount() == 0){
             }else{
                 while (cursor.moveToNext()){
-                    products_name.add(cursor.getString(1));
-                    quantity.add(cursor.getString(2));
-                    price.add(cursor.getString(3));
-
+                    products.add(new PRODUCT(cursor.getString(1),
+                            Integer.valueOf(cursor.getString(2)),
+                            Float.valueOf (cursor.getString(3))));
                 }
 
 

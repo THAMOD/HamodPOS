@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.almutarreb.hamodpos.model.PRODUCT;
 
 import com.almutarreb.hamodpos.R;
 import com.almutarreb.hamodpos.model.PRODUCT;
@@ -22,15 +23,14 @@ import java.util.ArrayList;
 
 public class RecyclerView_Adapter extends RecyclerView.Adapter<RecyclerView_Adapter.MyViewHolder> {
     private Context context;
-    ArrayList product_name,quantity,price;
+    ArrayList products;
       ;
     private Activity activity;
-    public RecyclerView_Adapter(Activity activity, Context context, ArrayList product_name,ArrayList quantity,ArrayList price)
+    public RecyclerView_Adapter(Activity activity, Context context, ArrayList products)
     {
         this.context=context;
-        this.product_name=product_name;
-        this.quantity=quantity;
-        this.price=price;
+        this.products=products;
+
         this.activity=activity;
     }
 
@@ -45,17 +45,16 @@ public class RecyclerView_Adapter extends RecyclerView.Adapter<RecyclerView_Adap
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        Toast.makeText(context, " set text on the items", Toast.LENGTH_SHORT).show();
-
-       holder.product_name.setText(String.valueOf(product_name.get(position)));
-        holder.quantity.setText(String.valueOf(quantity.get(position)));
-        holder.price.setText(String.valueOf(price.get(position)));
+    PRODUCT product= (PRODUCT) products.get(position);
+       holder.product_name.setText(String.valueOf(product.product_name));
+        holder.quantity.setText(String.valueOf(product.quantity));
+        holder.price.setText(String.valueOf(product.price));
 
     }
 
     @Override
     public int getItemCount() {
-        return quantity.size();
+        return products.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {

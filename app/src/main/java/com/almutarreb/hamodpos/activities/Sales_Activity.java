@@ -1,6 +1,7 @@
 package com.almutarreb.hamodpos.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,19 +21,18 @@ public class Sales_Activity extends AppCompatActivity {
 MyDataBaseHelper db;
 RecyclerView recyclerView;
 RecyclerView_Adapter recyclerView_adapter;
-ArrayList products_name,quantity,price;
+ArrayList products;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sales_);
-        products_name= new ArrayList<String>();
-        quantity=new ArrayList<String>();
-        price= new ArrayList<String>();
+        products= new ArrayList<PRODUCT>();
+
         storeDataInArrays();
         recyclerView=findViewById(R.id.recycler_items);
-        recyclerView_adapter=new RecyclerView_Adapter(Sales_Activity.this,getApplicationContext(),products_name,quantity,price);
+        recyclerView_adapter=new RecyclerView_Adapter(Sales_Activity.this,getApplicationContext(),products);
         recyclerView.setAdapter(recyclerView_adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(Sales_Activity.this));
+        recyclerView.setLayoutManager(new GridLayoutManager(Sales_Activity.this,2));
 
 
     }
@@ -44,9 +44,9 @@ ArrayList products_name,quantity,price;
             if(cursor.getCount() == 0){
             }else{
                 while (cursor.moveToNext()){
-                    products_name.add(cursor.getString(1));
-                    quantity.add(cursor.getString(2));
-                    price.add(cursor.getString(3));
+                    products.add(new PRODUCT(cursor.getString(1),
+                    Integer.valueOf(cursor.getString(2)),
+                   Float.valueOf (cursor.getString(3))));
 
                 }
 
