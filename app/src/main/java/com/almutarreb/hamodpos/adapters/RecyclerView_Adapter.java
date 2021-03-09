@@ -35,11 +35,11 @@ public class RecyclerView_Adapter extends RecyclerView.Adapter<RecyclerView_Adap
 
     public RecyclerView_Adapter(Activity activity, Context context, ArrayList products,
                                 @Nullable ListView listView, @Nullable TextView txt_total) {
+        this.txt_total = txt_total;
         this.listView = listView;
         this.context = context;
         this.products = products;
         this.AllProducts = new ArrayList(products);
-        this.txt_total = txt_total;
         this.activity = activity;
     }
 
@@ -67,6 +67,19 @@ public class RecyclerView_Adapter extends RecyclerView.Adapter<RecyclerView_Adap
                         ListAdapter adapter = (ListAdapter) listView.getAdapter();
                         adapter.AddItem(new PRODUCT(product.product_name, 1, product.price));
                         adapter.notifyDataSetChanged();
+                        float total = 0;
+                        try {
+                            if (txt_total.getText().toString().isEmpty()) {
+                                total = product.price;
+                            } else {
+                                total = Float.valueOf(txt_total.getText().toString());
+                                total += product.price;
+
+                            }
+                            txt_total.setText(String.valueOf(total));
+                        } catch (Exception ex) {
+                            Toast.makeText(context, ex.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
                         product.quantity = product.quantity - 1;
                         notifyDataSetChanged();
 
@@ -135,13 +148,13 @@ public class RecyclerView_Adapter extends RecyclerView.Adapter<RecyclerView_Adap
 
         public MyViewHolder(@NonNull View itemView, Activity activity1, ListView listView) {
             super(itemView);
-            this.txt_total = (itemView).findViewById(R.id.txt_total);
             this.listView = listView;
             this.activity = activity1;
             product_name = (itemView).findViewById(R.id.row_product_name);
             price = (itemView).findViewById(R.id.row_price);
             quantity = (itemView).findViewById(R.id.row_quantity);
             layout = (itemView).findViewById(R.id.recycler_layout);
+            this.txt_total = (itemView).findViewById(R.id.txt_total);
 //set anmition fro the layout
             Animation translate_anim = AnimationUtils.loadAnimation(context, R.anim.translate_anim);
             layout.setAnimation(translate_anim);

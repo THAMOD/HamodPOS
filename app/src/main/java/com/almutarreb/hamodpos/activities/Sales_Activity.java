@@ -2,7 +2,6 @@ package com.almutarreb.hamodpos.activities;
 
 import android.database.Cursor;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
@@ -60,7 +59,7 @@ public class Sales_Activity extends AppCompatActivity {
                 return false;
             }
         });
-        btn_pay = findViewById(R.id.btn_pay);
+       /* btn_pay = findViewById(R.id.btn_pay);
         btn_pay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,7 +75,7 @@ public class Sales_Activity extends AppCompatActivity {
 
 
             }
-        });
+        });*/
     }
     void storeDataInArrays(){
          db= new MyDataBaseHelper(getApplicationContext());
