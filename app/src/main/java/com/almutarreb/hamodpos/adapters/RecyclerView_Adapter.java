@@ -69,11 +69,6 @@ public class RecyclerView_Adapter extends RecyclerView.Adapter<RecyclerView_Adap
                         adapter.notifyDataSetChanged();
                         product.quantity = product.quantity - 1;
                         notifyDataSetChanged();
-                        try {
-                            holder.txt_total.setText(String.valueOf(product.price));
-                        } catch (Exception ex) {
-                            Toast.makeText(context, ex.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
 
                     } else {
                         Toast.makeText(context, product.product_name + "نفذ من المخزن", Toast.LENGTH_SHORT).show();

@@ -2,6 +2,8 @@ package com.almutarreb.hamodpos.activities;
 
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -28,12 +30,13 @@ public class Sales_Activity extends AppCompatActivity {
     ArrayList<PRODUCT> arrayList_product;
     ArrayList products;
     SearchView searchView;
+    Button btn_pay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        txt_total = findViewById(R.id.txt_total);
         setContentView(R.layout.activity_sales_);
+        txt_total = (TextView) findViewById(R.id.txt_total);
         products = new ArrayList<PRODUCT>();
         arrayList_product = new ArrayList<PRODUCT>();
         requst_list = findViewById(R.id.request_list);
@@ -41,24 +44,39 @@ public class Sales_Activity extends AppCompatActivity {
         requst_list.setAdapter(adapter);
         storeDataInArrays();
         recyclerView = findViewById(R.id.recycler_items);
-
         recyclerView_adapter = new RecyclerView_Adapter(Sales_Activity.this, getApplicationContext(), products, requst_list, txt_total);
         recyclerView.setAdapter(recyclerView_adapter);
         recyclerView.setLayoutManager(new GridLayoutManager(Sales_Activity.this, 2));
-
         searchView = findViewById(R.id.sales_txt_search);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
-    public boolean onQueryTextSubmit(String query) {
-        return false;
-    }
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
 
-    @Override
-    public boolean onQueryTextChange(String newText) {
-        recyclerView_adapter.getFilter().filter(newText);
-        return false;
-    }
-});
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                recyclerView_adapter.getFilter().filter(newText);
+                return false;
+            }
+        });
+        btn_pay = findViewById(R.id.btn_pay);
+        btn_pay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                float sum = 0;
+                for (PRODUCT p : arrayList_product) {
+                    sum += p.price;
+                }
+                try {
+                    txt_total.setText(sum + " $");
+                } catch (Exception ex) {
+                    Toast.makeText(Sales_Activity.this, ex.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+
+
+            }
+        });
     }
     void storeDataInArrays(){
          db= new MyDataBaseHelper(getApplicationContext());
