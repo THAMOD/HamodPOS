@@ -1,76 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView android:layout_height="match_parent"
+    android:layout_width="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context=".activities.Repostory_Activity"
-    android:orientation="vertical"
-    >
-<ImageView
-    android:layout_width="match_parent"
-    android:layout_height="200dp"
-    android:src="@drawable/store_icon"></ImageView>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Add new items "
-        android:textAlignment="center">
-    </TextView>
-    <EditText
-        android:layout_marginTop="100dp"
-        android:id="@+id/txt_product_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Pruduct Name"
-        android:inputType="text"
-        android:layout_marginLeft="20dp"
-        android:layout_marginBottom="20dp"
-        android:layout_marginRight="20dp"
-        android:textColor="#000"
-        ></EditText>
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <EditText
-        android:id="@+id/txt_quantity"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Quantity"
-        android:inputType="number"
-        android:textColor="#000"
-        android:layout_margin="20dp"
-        ></EditText>
+        android:layout_height="match_parent"
 
-    <EditText
-        android:id="@+id/txt_price"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="product Price"
-        android:inputType="numberDecimal"
-        android:textColor="#000"
-        android:layout_margin="20dp"
-        ></EditText>
+        android:isScrollContainer="true"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_add"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginBottom="10dp"
-        android:text="Add"
-        android:textColor="#000">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/store_icon"></ImageView>
 
-    </Button>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add new items "
+            android:textAlignment="center"></TextView>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginBottom="0dp"
-        android:text="Show all"
-        android:id="@+id/btn_show_all"
-        android:textColor="#000"></Button>
-</LinearLayout>
+        <EditText
+            android:layout_marginTop="20dp"
+            android:id="@+id/txt_product_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Pruduct Name"
+            android:inputType="text"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="20dp"
+            android:textColor="#000"></EditText>
+
+        <EditText
+            android:id="@+id/txt_quantity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Quantity"
+            android:inputType="number"
+            android:textColor="#000"
+            android:layout_margin="20dp"></EditText>
+
+        <EditText
+            android:id="@+id/txt_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="product Price"
+            android:inputType="numberDecimal"
+            android:textColor="#000"
+            android:layout_margin="20dp"></EditText>
+
+        <Button
+            android:id="@+id/btn_add"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginBottom="10dp"
+            android:text="Add"
+            android:textColor="#000">
+
+        </Button>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginBottom="0dp"
+            android:text="Show all"
+            android:id="@+id/btn_show_all"
+            android:textColor="#000"></Button>
+    </LinearLayout>
+</ScrollView>
