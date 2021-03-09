@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.almutarreb.hamodpos.R;
@@ -22,6 +23,7 @@ MyDataBaseHelper db;
 RecyclerView recyclerView;
 RecyclerView_Adapter recyclerView_adapter;
 ArrayList products;
+SearchView searchView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +36,19 @@ ArrayList products;
         recyclerView.setAdapter(recyclerView_adapter);
         recyclerView.setLayoutManager(new GridLayoutManager(Sales_Activity.this,2));
 
+searchView=findViewById(R.id.sales_txt_search);
+searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
 
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        recyclerView_adapter.getFilter().filter(newText);
+        return false;
+    }
+});
     }
     void storeDataInArrays(){
         MyDataBaseHelper db= new MyDataBaseHelper(getApplicationContext());
