@@ -22,6 +22,11 @@ public class ListAdapter extends BaseAdapter {
         this.items = items;
     }
 
+    public void AddItem(PRODUCT p) {
+        items.add(p);
+        notifyDataSetChanged();
+    }
+
     @Override
     public int getCount() {
         return items.size(); //returns total of items in the list

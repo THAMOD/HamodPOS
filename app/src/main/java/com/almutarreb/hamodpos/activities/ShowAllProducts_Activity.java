@@ -1,12 +1,12 @@
 package com.almutarreb.hamodpos.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.almutarreb.hamodpos.R;
 import com.almutarreb.hamodpos.adapters.RecyclerView_Adapter;
@@ -28,7 +28,7 @@ ArrayList products;
         products= new ArrayList<PRODUCT>();
 
         getdata();
-        adapter=new RecyclerView_Adapter(ShowAllProducts_Activity.this,getApplicationContext(),products);
+        adapter = new RecyclerView_Adapter(ShowAllProducts_Activity.this, getApplicationContext(), products, null, null);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(ShowAllProducts_Activity.this));
     }
@@ -51,7 +51,7 @@ ArrayList products;
 
         }catch (Exception ex)
         {
-            Toast.makeText(this, ex.getMessage().toString(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, ex.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 }
