@@ -54,11 +54,9 @@ public class ListAdapter extends BaseAdapter {
         PRODUCT currentItem = (PRODUCT) getItem(position);
 
         // get the TextView for item name and item description
-        TextView product_name = (TextView)
-                convertView.findViewById(R.id.row_product_name1);
-        TextView quantity = (TextView)
-                convertView.findViewById(R.id.row_quantity1);
-        TextView price=(TextView)convertView.findViewById(R.id.row_product_name1);
+        TextView product_name = (TextView) convertView.findViewById(R.id.row_product_name1);
+        TextView quantity = (TextView) convertView.findViewById(R.id.row_quantity1);
+        TextView price = (TextView) convertView.findViewById(R.id.row_price1);
 
         //sets the text for item name and item description from the current item object
         product_name.setText(currentItem.product_name);

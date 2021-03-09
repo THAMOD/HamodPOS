@@ -49,7 +49,7 @@ public class RecyclerView_Adapter extends RecyclerView.Adapter<RecyclerView_Adap
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.recycler_row, parent, false);
-        return new MyViewHolder(view, activity, listView, txt_total);
+        return new MyViewHolder(view, activity, listView);
 
     }
     @Override
@@ -65,7 +65,7 @@ public class RecyclerView_Adapter extends RecyclerView.Adapter<RecyclerView_Adap
                 {
                     if(product.quantity!=0) {
                         ListAdapter adapter = (ListAdapter) listView.getAdapter();
-                        adapter.AddItem(product);
+                        adapter.AddItem(new PRODUCT(product.product_name, 1, product.price));
                         adapter.notifyDataSetChanged();
                         product.quantity = product.quantity - 1;
                         notifyDataSetChanged();
@@ -138,9 +138,9 @@ public class RecyclerView_Adapter extends RecyclerView.Adapter<RecyclerView_Adap
         ListView listView;
         TextView txt_total;
 
-        public MyViewHolder(@NonNull View itemView, Activity activity1, ListView listView, TextView txt_total) {
+        public MyViewHolder(@NonNull View itemView, Activity activity1, ListView listView) {
             super(itemView);
-            this.txt_total = txt_total;
+            this.txt_total = (itemView).findViewById(R.id.txt_total);
             this.listView = listView;
             this.activity = activity1;
             product_name = (itemView).findViewById(R.id.row_product_name);
