@@ -8,10 +8,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.BaseAdapter;
+import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.almutarreb.hamodpos.R;
+import com.almutarreb.hamodpos.adapters.ListAdapter;
 import com.almutarreb.hamodpos.adapters.RecyclerView_Adapter;
 import com.almutarreb.hamodpos.data.MyDataBaseHelper;
 import com.almutarreb.hamodpos.model.PRODUCT;
@@ -22,6 +25,8 @@ public class Sales_Activity extends AppCompatActivity {
 MyDataBaseHelper db;
 RecyclerView recyclerView;
 RecyclerView_Adapter recyclerView_adapter;
+//ListView requst_list;
+//ArrayList <PRODUCT> arrayList_product;
 ArrayList products;
 SearchView searchView;
     @Override
@@ -29,9 +34,12 @@ SearchView searchView;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sales_);
         products= new ArrayList<PRODUCT>();
-
+//requst_list=findViewById(R.id.request_list);
+//ListAdapter adapter= new ListAdapter(getApplicationContext(),arrayList_product);
+//requst_list.setAdapter(adapter);
         storeDataInArrays();
         recyclerView=findViewById(R.id.recycler_items);
+
         recyclerView_adapter=new RecyclerView_Adapter(Sales_Activity.this,getApplicationContext(),products);
         recyclerView.setAdapter(recyclerView_adapter);
         recyclerView.setLayoutManager(new GridLayoutManager(Sales_Activity.this,2));
@@ -51,7 +59,7 @@ searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 });
     }
     void storeDataInArrays(){
-        MyDataBaseHelper db= new MyDataBaseHelper(getApplicationContext());
+         db= new MyDataBaseHelper(getApplicationContext());
         Cursor cursor = db.readAllData();
        // Toast.makeText(this, "data in the cursue", Toast.LENGTH_SHORT).show();
         try {

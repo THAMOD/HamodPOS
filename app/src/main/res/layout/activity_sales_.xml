@@ -45,6 +45,7 @@
         </SearchView>
     </LinearLayout>
         <ListView
+            android:id="@+id/request_list"
             android:layout_width="fill_parent"
             android:layout_height="300dp"
            ></ListView>
