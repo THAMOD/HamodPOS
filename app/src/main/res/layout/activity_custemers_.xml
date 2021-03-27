@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginVertical="70dp"
+    tools:context=".activities.Custemers_Activity">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="enter custmer name "
+        android:id="@+id/txt_custmer_name"
+        android:gravity="center"
+        android:layout_margin="10dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="enter custmer phone "
+        android:id="@+id/txt_custmer_phone"
+        android:gravity="center"
+        android:inputType="phone"
+
+        android:layout_margin="10dp"
+        android:layout_below="@+id/txt_custmer_name" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="enter custmer amount "
+        android:id="@+id/txt_amount"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:inputType="numberDecimal"
+        android:layout_below="@+id/txt_custmer_phone" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="save "
+        android:layout_above="@+id/btn_showall_custmer"
+        android:id="@+id/btn_save_custmer"
+        android:layout_centerHorizontal="true"
+        android:paddingRight="40dp"
+        android:paddingLeft="40dp"
+        android:layout_margin="8dp"
+
+        />
+
+    <Button
+        android:layout_alignParentBottom="true"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="show all "
+        android:id="@+id/btn_showall_custmer"
+        android:layout_centerHorizontal="true"
+        android:paddingRight="40dp"
+        android:paddingLeft="40dp"
+        android:layout_margin="8dp"
+
+        />
+
+
+</RelativeLayout>

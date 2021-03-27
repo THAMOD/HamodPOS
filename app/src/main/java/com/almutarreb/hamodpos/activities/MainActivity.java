@@ -1,15 +1,15 @@
 package com.almutarreb.hamodpos.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
-import com.almutarreb.hamodpos.adapters.MyCustumAdapter;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.almutarreb.hamodpos.R;
+import com.almutarreb.hamodpos.adapters.MyCustumAdapter;
 
 public class MainActivity extends AppCompatActivity {
     GridView gridView;
@@ -26,10 +26,14 @@ R.drawable.supplyers_icon,R.drawable.treasury_icon,R.drawable.expendture_icon,
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-               switch (column_text[position])
-               {
-                   case "pruducts": startActivity(new Intent(MainActivity.this,Repostory_Activity.class));break;
-                   case  "Sales" : startActivity(new Intent(MainActivity.this,Sales_Activity.class));
+               switch (column_text[position]) {
+                   case "pruducts":
+                       startActivity(new Intent(MainActivity.this, Repostory_Activity.class));
+                       break;
+                   case "Sales":
+                       startActivity(new Intent(MainActivity.this, Sales_Activity.class));
+                   case "Custmers":
+                       startActivity(new Intent(MainActivity.this, Custemers_Activity.class));
                }
             }
         });

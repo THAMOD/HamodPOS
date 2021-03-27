@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:minHeight="450dp"
+    android:minWidth="350dp">
+
+    <TextView
+        android:text="total amount is : 1500 $"
+        android:gravity="center"
+        android:padding="20dp"
+        android:layout_margin="24sp"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="enter amount"
+        android:padding="8dp"
+        android:inputType="numberDecimal"
+        android:layout_marginVertical="8dp" />
+
+    <RadioGroup
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:layout_marginHorizontal="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="cash" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="credit"
+            android:layout_marginHorizontal="8dp" />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/pay_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="enter custmer name " />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="amount dou :"
+        android:padding="8dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginVertical="24sp"
+        android:orientation="horizontal">
+
+        <Button
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="save"
+            android:id="@+id/btn_save_bill"
+            android:layout_gravity="center|bottom" />
+
+        <Button
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="print"
+            android:id="@+id/btn_print_bill"
+            android:layout_gravity="center|bottom" />
+
+        <Button
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="send"
+            android:id="@+id/btn_send_bill"
+            android:layout_gravity="center|bottom" />
+    </LinearLayout>
+</LinearLayout>
